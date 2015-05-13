@@ -551,7 +551,7 @@ class RDS2DBInstance:
             'replication_source': self.instance['ReadReplicaSourceDBInstanceIdentifier']
         }
         if self.instance["VpcSecurityGroups"] is not None:
-            d['vpc_security_groups'] = ','.join(x['VpcSecurityGroupId'] for x in self.instance['VpcSecurityGroups'])
+            d['vpc_security_groups_ids'] = ','.join(x['VpcSecurityGroupId'] for x in self.instance['VpcSecurityGroups'])
         if self.status == 'available':
             d['endpoint'] = self.instance["Endpoint"]["Address"]
             d['port'] = self.instance["Endpoint"]["Port"]
